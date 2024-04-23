@@ -1,0 +1,21 @@
+body{
+    background-color: rgb(10, 12, 18);
+}
+
+.background {
+    background-color: rgba(133, 133, 133, 0.521);
+    border-radius: 3in;
+    padding: 100px;
+    color: white;
+    margin: 5px;
+}
+
+.message {
+    font-size: 20px;
+}
+
+.lit {
+    margin-top: 2in;
+    text-align: end;
+    align-items: end;
+}

@@ -1,0 +1,64 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <title>Love?</title>
+</head>
+
+<body>
+  <div class="wrapper">
+    <div class="container">
+      <center>
+        <p id="question">Pwede Ba Kita Ligawan?</p>
+        <img id="pic1" src="mochj-cat.gif" alt="mochj-catp" style="height: 100px;width: 100px"> <br>
+        <botton class="btn bt5" id="yes">Oo</botton>
+        <button class="btn bt5" id="no">Hinde</button><br>
+        <button class="btn bt5" id="ok">Oo</button>
+        <button class="btn bt5" id="canc">Hinde</button>
+        <img id="pic2" src="mochi-cat.gif" alt="mochj-catp" style="height: 100px;width: 100px"> <br>
+      </center>
+    </div>
+  </div>
+  <script>
+    const noBtn = document.getElementById('no');
+    const yesBtn = document.getElementById('yes');
+    const ques = document.getElementById('question');
+    const okBtn = document.getElementById('ok');
+    const cancBtn = document.getElementById('canc');
+    document.getElementById('ok').style.display = "none";
+    document.getElementById('canc').style.display = "none";
+    document.getElementById('pic2').style.display = "none";
+    noBtn.addEventListener("click", () => {
+      let rand = Math.floor(Math.random() * (500 - 100) + 1);
+      let rand2 = Math.floor(Math.random() * (300 - 100) + 1);
+      noBtn.style.transform = "translate(" + rand + "px," + rand2 + "px)";
+    });
+    yesBtn.addEventListener("click", () => {
+      ques.innerHTML = "Sure Ka?😮"
+      document.getElementById('yes').style.display = "none";
+      document.getElementById('no').style.display = "none";
+      document.getElementById('ok').style.display = "block";
+      document.getElementById('canc').style.display = "block";
+    });
+    okBtn.addEventListener("click", () => {
+      ques.innerHTML = "PM mo ko Love you"
+      document.getElementById('pic1').style.display = "none";
+      document.getElementById('pic2').style.display = "block";
+      document.getElementById('ok').style.display = "none";
+      document.getElementById('canc').style.display = "none";
+    });
+    cancBtn.addEventListener("click", () => {
+      alert("Cge hinde kita mapipilit😭")
+      ques.innerHTML = "Thx for supporting me"
+      document.getElementById('pic1').style.display = "block";
+      document.getElementById('pic2').style.display = "none";
+      document.getElementById('ok').style.display = "none";
+      document.getElementById('canc').style.display = "none";
+    });
+  </script>
+</body>
+
+</html>

@@ -16,7 +16,7 @@
         <img id="pic1" src="mochj-cat.gif" alt="mochj-catp" style="height: 100px;width: 100px"> <br>
         <botton class="btn bt5" id="yes">Oo</botton>
         <button class="btn bt5" id="no">Hinde</button><br>
-        <button class="btn bt5" id="ok">Oo</button>
+        <button class="btn bt5" id="ok" onclick="sendMessage">Oo</button>
         <button class="btn bt5" id="canc">Hinde</button>
         <img id="pic2" src="mochi-cat.gif" alt="mochj-catp" style="height: 100px;width: 100px"> <br>
       </center>
@@ -28,6 +28,9 @@
     const ques = document.getElementById('question');
     const okBtn = document.getElementById('ok');
     const cancBtn = document.getElementById('canc');
+    const canctimes1 = 0;
+    const canctimes2 = 0;
+    
     document.getElementById('ok').style.display = "none";
     document.getElementById('canc').style.display = "none";
     document.getElementById('pic2').style.display = "none";
@@ -35,6 +38,7 @@
       let rand = Math.floor(Math.random() * (500 - 100) + 1);
       let rand2 = Math.floor(Math.random() * (300 - 100) + 1);
       noBtn.style.transform = "translate(" + rand + "px," + rand2 + "px)";
+      canctimes1 =+ 1;
     });
     yesBtn.addEventListener("click", () => {
       ques.innerHTML = "Sure Ka?😮"
@@ -57,7 +61,37 @@
       document.getElementById('pic2').style.display = "none";
       document.getElementById('ok').style.display = "none";
       document.getElementById('canc').style.display = "none";
+      canctimes2 =+ 1;
     });
+
+    
+    function sendMessage() {
+    var form = document.getElementById('contactform');
+    var formData = new FormData(form);
+
+    var webhookUrl = 'webhookURL';
+
+    fetch(webhookUrl, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            content: `--Contact--\n\nNew Message Submission:\n\nCancle 1: ${canctimes1}\nCancle 2 : ${canctimes2}`,
+        }),
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        alert('Message submitted successfully!');
+        form.reset();
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        alert('Error submitting message. Please try again.');
+    });
+  }
   </script>
 </body>
 

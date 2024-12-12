@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            center {
+                margin-left: auto;
+                margin-right: auto;
+            }
+            p {
+                color: rgb(255, 255, 255);
+                font: 1em sans-serif;
+            }
+            input[type = text] {
+                background-color: rgb(66, 66, 66);
+                border: 3px solid rgb(145, 145, 145);
+                color: rgb(255, 255, 255);
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 16px;
+                margin: 4px 2px;
+                border-radius: 50px;
+            }
+            body {
+                background-color: rgb(63, 63, 63);
+            }
+            .btn {
+            background-color: #aa0404;
+            border: none;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin-left: auto;
+            margin-right: auto;
+            cursor: pointer;
+            }
+
+            .bt5 {border-radius: 26px;}
+        </style>
+    </head>
+    <body>
+      <title> QUESTION </title>
+        <div class="wrapper">
+            <div class="container">
+                <center>
+                    <p id="question">Love mo ako?</p>
+                    <botton class="btn bt5" id="yes">Oo</botton>
+                    <button class="btn bt5" id="no">Hinde</button><br>
+                    <button class="btn bt5" id="ok">Ok</button>
+                    <button class="btn bt5" id="canc">Cancel The Love</button>
+                </center>
+            </div>
+        </div>
+    </body>
+    <script>
+        const noBtn = document.getElementById('no');
+        const yesBtn = document.getElementById('yes');
+        const ques = document.getElementById('question');
+        const okBtn = document.getElementById('ok');
+        const cancBtn = document.getElementById('canc');
+        document.getElementById('ok').style.display = "none";
+        document.getElementById('canc').style.display = "none";
+        noBtn.addEventListener("click", ()=>{
+            let rand = Math.floor(Math.random() * (500 - 100) + 1);
+            let rand2 = Math.floor(Math.random() * (300 - 100) + 1);
+            noBtn.style.transform = "translate("+rand+"px,"+rand2+"px)";
+        });
+        yesBtn.addEventListener("click", ()=>{
+            ques.innerHTML = "I Love You Too <3"
+            document.getElementById('yes').style.display = "none";
+            document.getElementById('no').style.display = "none";
+            document.getElementById('ok').style.display = "block";
+            document.getElementById('canc').style.display = "block";
+        });
+        okBtn.addEventListener("click", ()=>{
+            ques.innerHTML = "ayiiiiiii cge na Out mo na"
+            document.getElementById('ok').style.display = "none";
+            document.getElementById('canc').style.display = "none";
+        });
+        cancBtn.addEventListener("click", ()=>{
+            let rand = Math.floor(Math.random() * (500 - 100) + 1);
+            let rand2 = Math.floor(Math.random() * (300 - 100) + 1);
+            cancBtn.style.transform = "translate("+rand+"px,"+rand2+"px)";
+        });
+    </script>
+</html>
